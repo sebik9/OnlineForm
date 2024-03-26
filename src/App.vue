@@ -1,5 +1,11 @@
 <template>
+  <head>
+    <title>Ticketino</title>
+  </head>
   <body>
+    <header>
+      <h1>Ticketino</h1>
+    </header>
     <form>
       <div class="row">
         <div class="field">
@@ -58,6 +64,21 @@
           </div>
         </fieldset>
       </div>
+      <div class="row">
+        <label for="special">Special requests</label>
+        <textarea id="special"></textarea>
+      </div>
+      <div class="row">
+        <fieldset>
+          <legend>Purchase Agreement</legend>
+          <input type="checkbox" name="agreement" id="agree" />
+          <label for="agree">I Agree</label>
+        </fieldset>
+      </div>
+      <div class="row">
+        <button type="reset">reset</button>
+        <button type="submit">Confirm order</button>
+      </div>
     </form>
   </body>
 </template>
@@ -81,4 +102,35 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+body {
+  max-width: 800px;
+}
+
+header {
+  background-color: #4c7ef3;
+  align-items: center;
+  height: 60px;
+}
+
+h1 {
+  letter-spacing: 0.3px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  max-width: 200px;
+  padding: 15px;
+}
+
+form {
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  padding: 1.86rem 20%;
+}
+
+fieldset {
+  border: none;
+}
+</style>
