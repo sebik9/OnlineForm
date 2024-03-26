@@ -130,6 +130,26 @@ form {
   padding: 1.86rem 20%;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  background-color: pink;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.field {
+  width: 50%;
+  background-color: red;
+}
+
+input {
+  background-color: blue;
+  margin-right: 15px;
+  padding: 0.71rem;
+  margin-top: 5px;
+}
+
 fieldset {
   border: none;
 }
