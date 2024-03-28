@@ -9,16 +9,16 @@
     <form>
       <div class="row">
         <div class="field">
-          <label for="first-name">First Name</label>
+          <label for="first-name" class="name">First Name</label>
           <input type="text" id="first-Name" />
         </div>
         <div class="field">
-          <label for="last-name">Last Name</label>
+          <label for="last-name" class="name">Last Name</label>
           <input type="text" id="last-name" />
         </div>
       </div>
       <div class="row">
-        <div class="field">
+        <div class="field-email">
           <label for="email">Email</label>
           <input type="text" id="email" />
         </div>
@@ -133,6 +133,7 @@ form {
 .row {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   background-color: pink;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -141,6 +142,16 @@ form {
 .field {
   width: 50%;
   background-color: red;
+}
+
+.field-email {
+  width: 100%;
+  background-color: palegreen;
+}
+
+#email {
+  width: calc(100% - 26px);
+  background-color: purple;
 }
 
 input {
@@ -152,5 +163,27 @@ input {
 
 fieldset {
   border: none;
+}
+
+select {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  height: 39px;
+  margin-top: 5px;
+}
+
+@media (max-width: 734px) {
+  .row {
+    flex-direction: column;
+  }
+  .field {
+    width: 100%;
+  }
+  .name {
+    width: 100%;
+    background-color: yellow;
+    float: left;
+  }
 }
 </style>
