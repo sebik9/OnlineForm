@@ -39,11 +39,11 @@
           <legend>Ticket Type</legend>
           <div>
             <input type="radio" id="standard" value="standard" v-model="ticketType" />
-            <label for="standard">Standard</label>
+            <label for="standard">Standard 20$</label>
           </div>
           <div>
             <input type="radio" id="vip" value="vip" v-model="ticketType" />
-            <label for="vip">VIP</label>
+            <label for="vip">VIP 60$</label>
           </div>
         </div>
       </div>
@@ -71,6 +71,7 @@
       <div class="row">
         <fieldset>
           <legend>Purchase Agreement</legend>
+          <p>I, PH, wish to buy PH for PH$. I understand tha all ticket sales are final.</p>
           <input type="checkbox" name="agreement" id="agree" />
           <label for="agree">I Agree</label>
         </fieldset>
