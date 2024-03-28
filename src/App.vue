@@ -133,7 +133,7 @@ form {
 .row {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+
   background-color: pink;
   margin-top: 5px;
   margin-bottom: 5px;
