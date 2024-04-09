@@ -10,29 +10,29 @@
       <div class="row">
         <div class="field">
           <label for="first-name" class="name">First Name</label>
-          <input type="text" id="first-Name" />
+          <input type="text" id="first-Name" v-model="firstName" />
         </div>
         <div class="field">
           <label for="last-name" class="name">Last Name</label>
-          <input type="text" id="last-name" />
+          <input type="text" id="last-name" v-model="lastName" />
         </div>
       </div>
       <div class="row">
         <div class="field-email">
           <label for="email">Email</label>
-          <input type="text" id="email" />
+          <input type="text" id="email" v-model="email" />
         </div>
       </div>
       <div class="row">
         <div class="field">
           <label for="ticket-quantity">Ticket Quantity</label>
-          <select id="ticket-quantity">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
+          <select id="ticket-quantity" v-model="ticketQuant">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
           </select>
         </div>
         <div class="field">
@@ -51,28 +51,30 @@
         <fieldset>
           <legend>How did you hear about this Event?</legend>
           <div>
-            <input type="checkbox" id="friend" value="friend" />
+            <input type="checkbox" id="friend" value="friend" v-model="referral" />
             <label for="friend">From a friend</label>
           </div>
           <div>
-            <input type="checkbox" id="television" value="television" />
+            <input type="checkbox" id="television" value="television" v-model="referral" />
             <label for="television">On television</label>
           </div>
           <div>
-            <input type="checkbox" id="social-media" value="socialMedia" />
+            <input type="checkbox" id="social-media" value="socialMedia" v-model="referral" />
             <label for="social-media">Social Media</label>
           </div>
         </fieldset>
       </div>
       <div class="row">
-        <label for="special">Special requests:</label>
-        <textarea id="special"></textarea>
+        <div class="field-email">
+          <label for="special" class="special-label">Special requests:</label>
+          <textarea id="special" v-model="specialRequest"></textarea>
+        </div>
       </div>
       <div class="row">
         <fieldset>
           <legend>Purchase Agreement</legend>
           <p>I, PH, wish to buy PH. I understand tha all ticket sales are final.</p>
-          <input type="checkbox" name="agreement" id="agree" />
+          <input type="checkbox" name="agreement" id="agree" v-model="agreementBox" />
           <label for="agree">I Agree</label>
         </fieldset>
       </div>
@@ -82,6 +84,18 @@
       </div>
     </form>
   </body>
+
+  <div>
+    Dev pane data test<br />
+    {{ firstName }}<br />
+    {{ lastName }}<br />
+    {{ email }}<br />
+    {{ ticketQuant }}<br />
+    {{ ticketType }}<br />
+    {{ referral }}<br />
+    {{ specialRequest }}<br />
+    {{ agreementBox }}
+  </div>
 </template>
 
 <script>
