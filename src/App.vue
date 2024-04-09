@@ -65,7 +65,7 @@
         </fieldset>
       </div>
       <div class="row">
-        <label for="special">Special requests</label>
+        <label for="special">Special requests:</label>
         <textarea id="special"></textarea>
       </div>
       <div class="row">
@@ -154,6 +154,14 @@ form {
 
 #email {
   width: calc(100% - 26px);
+  background-color: purple;
+}
+
+#special {
+  width: calc(100% - 6px);
+  max-width: calc(100% - 6px);
+  max-height: 90px;
+  min-height: 30px;
   background-color: purple;
 }
 
