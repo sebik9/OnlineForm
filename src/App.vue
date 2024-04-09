@@ -77,8 +77,8 @@
         </fieldset>
       </div>
       <div class="row">
-        <button type="reset">reset</button>
-        <button type="submit">Confirm order</button>
+        <button type="reset" class="reset-btn">Reset</button>
+        <button type="submit" class="confirm-btn">Confirm order</button>
       </div>
     </form>
   </body>
@@ -112,6 +112,7 @@ header {
   background-color: #4c7ef3;
   align-items: center;
   height: 60px;
+  min-width: 280px;
 }
 
 h1 {
@@ -129,6 +130,7 @@ form {
   display: flex;
   flex-direction: column;
   padding: 1.86rem 20%;
+  min-width: 200px;
 }
 
 .row {
@@ -172,6 +174,14 @@ select {
   width: 80%;
   height: 39px;
   margin-top: 5px;
+}
+
+.reset-btn {
+  width: 100%;
+}
+
+.confirm-btn {
+  width: 100%;
 }
 
 @media (max-width: 734px) {
