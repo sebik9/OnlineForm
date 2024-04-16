@@ -98,16 +98,16 @@
 
   <div>
     Dev pane data test<br />
-    {{ firstName }}<br />
-    {{ lastName }}<br />
-    {{ email }}<br />
-    {{ ticketQuant }}<br />
-    {{ ticketType }}<br />
-    {{ referral }}<br />
-    {{ specialRequest }}<br />
-    {{ agreementBox }}<br />
-    {{ fullName }}<br />
-    {{ isValid }}
+    firstname: {{ firstName }}<br />
+    lastname {{ lastName }}<br />
+    e-mail: {{ email }}<br />
+    ticketcount: {{ ticketQuant }}<br />
+    ticketType: {{ ticketType }}<br />
+    referal: {{ referral }}<br />
+    special: {{ specialRequest }}<br />
+    agreeBox: {{ agreementBox }}<br />
+    fullname: {{ fullName }}<br />
+    valid? {{ isValid }}
   </div>
 </template>
 
@@ -158,10 +158,6 @@ body {
   max-width: 800px;
 }
 
-.bgc {
-  background-color: #4c7ef3;
-}
-
 header {
   background-color: #4c7ef3;
   align-items: center;
@@ -200,7 +196,6 @@ form {
 
 .field-email {
   width: 100%;
-  min-width: 239px;
 }
 
 #email {
@@ -232,6 +227,7 @@ select {
   width: 80%;
   height: 39px;
   margin-top: 5px;
+  min-width: 196px;
 }
 
 .reset-btn {
@@ -249,6 +245,7 @@ select {
 @media (max-width: 734px) {
   .row {
     flex-direction: column;
+    width: 100%;
   }
   .field {
     width: 100%;
@@ -256,6 +253,24 @@ select {
   .name {
     width: 100%;
     float: left;
+  }
+
+  select {
+    width: 100%;
+  }
+
+  .field-email {
+    width: calc(100% - 27px);
+  }
+
+  #email {
+    width: 100%;
+    min-width: 169px;
+  }
+
+  #special {
+    width: calc(100% + 21px) !important;
+    max-width: calc(100% + 21px);
   }
 }
 </style>
