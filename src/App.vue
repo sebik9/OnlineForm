@@ -11,11 +11,31 @@
         <div class="row">
           <div class="field">
             <label for="first-name" class="name">First Name</label>
-            <input type="text" id="first-Name" v-model="firstName" @input="validateForm" />
+            <input
+              type="text"
+              id="first-Name"
+              :class="{
+                untouched: !firstNameTouched,
+                'invalid-input': isInvalidFirst && firstNameTouched
+              }"
+              v-model="firstName"
+              @input="validateForm"
+              @blur="blurHandler('firstName')"
+            />
           </div>
           <div class="field">
             <label for="last-name" class="name">Last Name</label>
-            <input type="text" id="last-name" v-model="lastName" @input="validateForm" />
+            <input
+              type="text"
+              id="last-name"
+              :class="{
+                untouched: !lastNameTouched,
+                'invalid-input': isInvalidLast && lastNameTouched
+              }"
+              v-model="lastName"
+              @input="validateForm"
+              @blur="blurHandler('lastName')"
+            />
           </div>
         </div>
         <div class="row">
@@ -75,8 +95,8 @@
           <fieldset>
             <legend>Purchase Agreement</legend>
             <p class="agree-text">
-              I, PH, wish to buy {{ ticketType }} ticket. I understand tha all ticket sales are
-              final.
+              I, {{ fullName }}, wish to buy {{ ticketType }} ticket. I understand tha all ticket
+              sales are final.
             </p>
             <input
               type="checkbox"
@@ -107,7 +127,8 @@
     special: {{ specialRequest }}<br />
     agreeBox: {{ agreementBox }}<br />
     fullname: {{ fullName }}<br />
-    valid? {{ isValid }}
+    valid? {{ isValid }}<br />
+    touchstatefirst {{ firstNameTouched }}
   </div>
 </template>
 
@@ -123,12 +144,21 @@ export default {
       referral: [],
       specialRequest: '',
       agreementBox: false, //default value of false user has to agree manualy
-      isValid: false
+      isValid: false,
+      firstNameTouched: false,
+      lastNameTouched: false,
+      isUntouched: true
     }
   },
   computed: {
     fullName() {
       return this.firstName.trim() + ' ' + this.lastName.trim()
+    },
+    isInvalidFirst() {
+      return this.firstNameTouched && !this.isValidInput(this.firstName)
+    },
+    isInvalidLast() {
+      return this.lastNameTouched && !this.isValidInput(this.lastName)
     }
   },
   methods: {
@@ -148,6 +178,17 @@ export default {
       this.specialRequest = ''
       this.agreementBox = false
       this.validateForm()
+    },
+    blurHandler(fieldName) {
+      if (fieldName === 'firstName') {
+        this.firstNameTouched = true
+      } else if (fieldName === 'lastName') {
+        this.lastNameTouched = true
+      }
+      this.validateForm()
+    },
+    isValidInput(value) {
+      return value.trim() !== ''
     }
   }
 }
@@ -240,6 +281,10 @@ select {
 
 .agree-text {
   max-width: 440px;
+}
+
+.invalid-input {
+  border-color: red;
 }
 
 @media (max-width: 734px) {
