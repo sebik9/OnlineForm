@@ -110,7 +110,9 @@
         </div>
         <div class="row">
           <button type="reset" class="reset-btn" @click="formReset">Reset</button>
-          <button type="submit" class="confirm-btn" :disabled="!isValid">Confirm order</button>
+          <button type="submit" :class="{ valid: isValid, invalid: !isValid }" :disabled="!isValid">
+            Confirm order
+          </button>
         </div>
       </div>
     </form>
@@ -277,6 +279,16 @@ select {
 
 .confirm-btn {
   width: 100%;
+}
+
+.valid {
+  width: 100%;
+  background: green;
+}
+
+.invalid {
+  width: 100%;
+  background-color: red;
 }
 
 .agree-text {
